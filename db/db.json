@@ -1,0 +1,126 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "username": "arun_vibes",
+      "profilePic": "/assets/img1.avif",
+      "image": "/assets/post1.avif",
+      "caption": "Enjoying the sunset at the beach 🌅",
+      "likes": 120,
+      "comments": [
+        {
+          "username": "deepa_94",
+          "comment": "Super da!"
+        },
+        {
+          "username": "kavi_art",
+          "comment": "Beautiful view 😍"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "username": "divya_clicks",
+      "profilePic": "/assets/image2.avif",
+      "image": "/assets/Posts2.avif",
+      "caption": "Coffee time ☕📖",
+      "likes": 95,
+      "comments": [
+        {
+          "username": "jegan_m",
+          "comment": "Ithu enga spot?"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "username": "gokul_travels",
+      "profilePic": "/assets/img3.avif",
+      "image": "/assets/Posts3.avif",
+      "caption": "Nature never goes out of style 🍃",
+      "likes": 205,
+      "comments": [
+        {
+          "username": "anitha_snap",
+          "comment": "Wow! Love this place!"
+        },
+        {
+          "username": "bala_dreams",
+          "comment": "Ippo dhan naanum inga poga plan panren 😎"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "id": 1,
+    "username": "vimal_kannan",
+    "profilePic": "/assets/s3.avif",
+    "image": "/assets/post1.avif"
+  },
+  "suggestions": [
+    {
+      "id": "1",
+      "username": "Jonas",
+      "profilePic": "/assets/sug1.avif"
+    },
+    {
+      "id": "2",
+      "username": "Irene Strong",
+      "profilePic": "/assets/sug2.avif"
+    },
+    {
+      "id": "3",
+      "username": "Sage Friedman",
+      "profilePic": "/assets/sug3.avif"
+    },
+    {
+      "id": "4",
+      "username": "gokul",
+      "profilePic": "/assets/sug3.avif"
+    },
+    {
+      "id": "5",
+      "username": "John_Doe",
+      "profilePic": "/assets/sug4.avif"
+    }
+  ],
+  "story": [
+    {
+      "id": "1",
+      "username": "arun_vibes",
+      "profilePic": "/assets/img1.avif",
+      "image": "/assets/s1.avif"
+    },
+    {
+      "id": "2",
+      "username": "divya_clicks",
+      "profilePic": "/assets/image2.avif",
+      "image": "/assets/s2.avif"
+    },
+    {
+      "id": "3",
+      "username": "gokul_travels",
+      "profilePic": "/assets/img3.avif",
+      "image": "/assets/s3.avif"
+    },
+    {
+      "id": "4",
+      "username": "John_Doe",
+      "profilePic": "/assets/sug4.avif",
+      "image": "/assets/s4.avif"
+    },
+    {
+      "id": "5",
+      "username": "Irene Strong",
+      "profilePic": "/assets/sug2.avif",
+      "image": "/assets/s5.avif"
+    },
+    {
+      "id": "6",
+      "username": "Sage Friedman",
+      "profilePic": "/assets/sug3.avif",
+      "image": "/assets/s6.avif"
+    }
+  ],
+  "followers": []
+}
