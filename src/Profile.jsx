@@ -5,7 +5,12 @@ function Profile() {
     const [profile, setProfile] = useState(null);
     const [followers, setFollowers] = useState([]);
     const[unfollowed,setUnfollowed]=useState(0);
-    const baseUrl ='https://my-json-server.typicode.com/rkvst/instagram-clone';
+    
+     const baseUrl =
+      import.meta.env.MODE === 'development'
+        ? 'http://localhost:3000'
+        :  'https://my-json-server.typicode.com/rkvst/instagram-clone';
+
 
     useEffect(() => {
         // axios.get('http://localhost:3000/profile')
