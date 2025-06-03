@@ -5,12 +5,16 @@ function Profile() {
     const [profile, setProfile] = useState(null);
     const [followers, setFollowers] = useState([]);
     const[unfollowed,setUnfollowed]=useState(0);
+    const baseUrl ='https://my-json-server.typicode.com/rkvst/instagram-clone';
+
     useEffect(() => {
-        axios.get('http://localhost:3000/profile')
+        // axios.get('http://localhost:3000/profile')
+            axios.get(`${baseUrl}/profile`)
             .then(data => setProfile(data.data))
             .catch(err => console.log(err))
 
-        axios.get('http://localhost:3000/followers')
+        // axios.get('http://localhost:3000/followers')
+            axios.get(`${baseUrl}/followers`)
             .then(data => setFollowers(data.data))
             .catch(err => console.log(err))
     }, [unfollowed])
@@ -22,18 +26,43 @@ function Profile() {
         }))
     }
 
-    const handleupdate = async () => {
-        axios.put('http://localhost:3000/profile', profile)
-            .then(alert("updated"))
-            .catch(err => console.log(err))
+    // const handleupdate = async () => {
+    //     axios.put('http://localhost:3000/profile', profile)
+    //         .then(alert("updated"))
+    //         .catch(err => console.log(err))
+    //     }
+     const handleupdate = async () => {
+        if (import.meta.env.MODE === 'development') {
+          try {
+            await axios.put(`${baseUrl}/profile`, profile);
+            alert("Updated");
+          } catch (err) {
+            console.log(err);
+          }
+        } else {
+          alert("Update not available in deployment (read-only API)");
         }
+      }; 
 
-     const handleUnfollow=async(id)=>{
-        axios.delete(`http://localhost:3000/followers/${id}`)
-        .then(alert("UnFollowed"))
-        .then(setUnfollowed(!unfollowed))
-        .catch(err=>console.log(err))
-     }   
+    //  const handleUnfollow=async(id)=>{
+    //     axios.delete(`http://localhost:3000/followers/${id}`)
+    //     .then(alert("UnFollowed"))
+    //     .then(setUnfollowed(!unfollowed))
+    //     .catch(err=>console.log(err))
+    //  }   
+    const handleUnfollow = async (id) => {
+        if (import.meta.env.MODE === 'development') {
+          try {
+            await axios.delete(`${baseUrl}/followers/${id}`);
+            alert("Unfollowed");
+            setUnfollowed(!unfollowed);
+          } catch (err) {
+            console.log(err);
+          }
+        } else {
+          alert("Unfollow not available in deployment (read-only API)");
+        }
+      }; 
 
     return (
         <div className='m-10 '>
