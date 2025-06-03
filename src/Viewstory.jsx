@@ -6,7 +6,7 @@ function Viewstory() {
     const [Story, setStory] = useState(null);
     const navigate=useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:3000/story/${id}`)
+        fetch(`(https://my-json-server.typicode.com/rkvst/instagram-clone/story/${id}`)
             .then(data => data.json())
             .then((data) => {
         console.log("Fetched story:", data); // ✅ Debug
