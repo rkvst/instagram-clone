@@ -22,7 +22,7 @@ const toggleLike = (postId) => {
 
   return (
     <div className='flex flex-col items-center sm:items-stretch'>
-  {posts.length > 0 ? (
+  {Array.isArray (posts)&&posts.length > 0 ? (
     <div className="w-full">
       {posts.map((post) => (
         <div className="mt-3 mb-1 w-full px-2 sm:px-3 sm:max-w-[500px]" key={post.id}>
