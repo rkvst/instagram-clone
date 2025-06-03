@@ -5,6 +5,7 @@ function Posts() {
     const[posts,setPosts]=useState([]);
     // const[liked,setLiked]=useState(false);
     const [likedPosts, setLikedPosts] = useState({});
+     const baseUrl ='https://my-json-server.typicode.com/rkvst/instagram-clone';
 
 const toggleLike = (postId) => {
   setLikedPosts(prev => ({
@@ -13,12 +14,23 @@ const toggleLike = (postId) => {
   }));
 };
 
-    useEffect(()=>{
-        fetch('http://localhost:3000/posts').
-        then((data)=>data.json()).
-        then(data=>setPosts(data)).
-        catch(err=>console.log(err))
-    },[])
+
+       useEffect(() => {
+          fetch(`${baseUrl}/posts`)
+            .then((res) => res.json())
+            .then((data) => setPosts(data))
+            .catch((err) => console.error('Failed to load posts:', err));
+            console.log("Fetched Posts:", posts);
+            console.log("Environment:", import.meta.env.MODE);
+            console.log("Base URL:", baseUrl);
+        }, []);
+
+    // useEffect(()=>{
+    //     fetch('http://localhost:3000/posts').
+    //     then((data)=>data.json()).
+    //     then(data=>setPosts(data)).
+    //     catch(err=>console.log(err))
+    // },[])
 
   return (
     <div className='flex flex-col items-center sm:items-stretch'>
