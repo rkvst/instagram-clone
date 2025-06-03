@@ -26,10 +26,7 @@ function Suggestions() {
   //   .then(alert('Followed'))
   //   .catch(err=>console.log(err))
   // }
-    const baseUrl =
-  import.meta.env.MODE === 'development'
-    ? 'http://localhost:3000'
-    :  'https://my-json-server.typicode.com/rkvst/instagram-clone'
+    const baseUrl ='https://my-json-server.typicode.com/rkvst/instagram-clone';
   
   useEffect(() => {
     fetch(`${baseUrl}/profile`)
