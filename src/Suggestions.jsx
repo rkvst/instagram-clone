@@ -41,14 +41,10 @@ function Suggestions() {
   }, []);
 
   const handlefollow = async (id, username) => {
-    if (import.meta.env.MODE === 'development') {
-      axios
-        .post(`${baseUrl}/followers`, { id: id, username: username })
-        .then(() => alert('Followed'))
-        .catch((err) => console.log(err));
-    } else {
-      alert('Follow action is disabled in deployment (read-only API)');
-    }
+
+    axios.post(`${baseUrl}/followers`, { id: id, username: username })
+      .then(() => alert('Followed'))
+      .catch((err) => console.log(err));
   };
   
   return (
