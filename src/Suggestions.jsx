@@ -7,26 +7,50 @@ function Suggestions() {
   const[Suggestions,setSuggestions]=useState([]);
   const[isfollowing,setFollowing]=useState(false);
 
-  useEffect(()=>{
-      fetch('http://localhost:3000/profile').
-      then(data=>data.json()).
-      then(data=>setProfile(data)).
-      catch(err=>console.log(err)
-    )
-     fetch('http://localhost:3000/suggestions').
-      then(data=>data.json()).
-      then(data=>setSuggestions(data)).
-      catch(err=>console.log(err)
-    )
+  // useEffect(()=>{
+  //     fetch('http://localhost:3000/profile').
+  //     then(data=>data.json()).
+  //     then(data=>setProfile(data)).
+  //     catch(err=>console.log(err)
+  //   )
+  //    fetch('http://localhost:3000/suggestions').
+  //     then(data=>data.json()).
+  //     then(data=>setSuggestions(data)).
+  //     catch(err=>console.log(err)
+  //   )
 
-  },[])
+  // },[])
 
-  const handlefollow=async(id,username)=>{
-    axios.post('http://localhost:3000/followers',{"id":id,"username":username})
-    .then(alert('Followed'))
-    .catch(err=>console.log(err))
-  }
+  // const handlefollow=async(id,username)=>{
+  //   axios.post('http://localhost:3000/followers',{"id":id,"username":username})
+  //   .then(alert('Followed'))
+  //   .catch(err=>console.log(err))
+  // }
+    const baseUrl ='https://my-json-server.typicode.com/rkvst/instagram-clone';
 
+  useEffect(() => {
+    fetch(`${baseUrl}/profile`)
+      .then((data) => data.json())
+      .then((data) => setProfile(data))
+      .catch((err) => console.log(err));
+
+    fetch(`${baseUrl}/suggestions`)
+      .then((data) => data.json())
+      .then((data) => setSuggestions(data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const handlefollow = async (id, username) => {
+    if (import.meta.env.MODE === 'development') {
+      axios
+        .post(`${baseUrl}/followers`, { id: id, username: username })
+        .then(() => alert('Followed'))
+        .catch((err) => console.log(err));
+    } else {
+      alert('Follow action is disabled in deployment (read-only API)');
+    }
+  };
+  
   return (
     <div>
       <div className='w-full md:w-[70%] m-5'>
