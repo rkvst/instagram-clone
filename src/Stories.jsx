@@ -6,12 +6,24 @@ function Stories() {
   const navigate = useNavigate();
   let tot = 0;
 
-  useEffect(() => {
-    fetch('http://localhost:3000/story')
-      .then(data => data.json())
-      .then(data => setStories(data))
-      .catch(err => console.log(err))
-  })
+
+  // useEffect(() => {
+  //   fetch('http://localhost:3000/story')
+  //     .then(data => data.json())
+  //     .then(data => setStories(data))
+  //     .catch(err => console.log(err))
+  // },[])
+
+   const baseUrl ='https://my-json-server.typicode.com/rkvst/instagram-clone';
+  
+
+    useEffect(() => {
+      fetch(`${baseUrl}/story`)
+        .then(res => res.json())
+        .then(data => setStories(data))
+        .catch(err => console.error('Failed to load stories:', err));
+    }, []);
+    
   return (
     <div className=' h-[60px] flex justify-center items-center space-x-6 p-10'>
       <div className='hidden'>
